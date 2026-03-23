@@ -50,7 +50,7 @@ For non-medical use cases, `snowflake-arctic-embed` is the better choice - it's 
 
 ## Architecture
 
-![Architecture Diagram](assets/architecture.svgarchitecture.svg)
+![Architecture Diagram](assets/architecture.svg)
 
 > Open [`architecture.drawio`](assets/architecture.drawio) in [draw.io](https://app.diagrams.net) for the interactive version. Also available as [`architecture.excalidraw`](assets/architecture.excalidraw).
 
