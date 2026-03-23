@@ -50,31 +50,11 @@ For non-medical use cases, `snowflake-arctic-embed` is the better choice - it's 
 
 ## Architecture
 
-```
-PubMed Marketplace Listing (CKE)
-    |
-    | (free, auto-updated daily by Snowflake)
-    v
-PUBMED_BIOMEDICAL_RESEARCH_CORPUS.OA_COMM.PUBMED_OA_VW  (~72M chunks)
-    |
-    |--- [Historical bulk embed] ---> PUBMED_OA_MEDCPT_FULL_EMBEDDINGS
-    |                                     |
-    |--- [Daily incremental load] ------->|  (delete+insert at PMID grain)
-                                          |
-                                          v
-                              Cortex Search Service
-                              (text index: CHUNK + vector index: EMBEDDING)
-                                          |
-                                          v
-                              Stored Procedure (SEARCH_PUBMED_MEDCPT_SP)
-                              - Encodes query via Query Encoder SPCS service
-                              - Passes vector to Cortex Search multi_index_query
-                                          |
-                                          v
-                              Cortex Agent (MEDCPT_PUBMED_SP_AGENT)
-                              - Orchestrates search tool calls
-                              - Synthesizes evidence-based answers with citations
-```
+![Architecture Diagram](architecture.drawio.png)
+
+> Open [`architecture.drawio`](architecture.drawio) in [draw.io](https://app.diagrams.net) for the interactive version. Also available as [`architecture.excalidraw`](assets/architecture.excalidraw).
+>
+> To regenerate the PNG: open `architecture.drawio` in draw.io, then **File > Export as > PNG** (scale 2x) and save as `architecture.drawio.png`.
 
 ### SPCS services
 
