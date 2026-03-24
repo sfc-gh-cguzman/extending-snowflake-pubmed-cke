@@ -2,7 +2,7 @@
 
 ## What this is
 
-A reference implementation that extends Snowflake's **PubMed Biomedical Research Corpus** Curated Knowledge Extension (CKE) with domain-specific [MedCPT](https://github.com/ncbi/MedCPT) embeddings, Cortex Search multi-index queries, and a Cortex Agent - all running natively on Snowflake.
+A reference implementation that extends Snowflake's **PubMed Biomedical Research Corpus** Curated Knowledge Extension (CKE) with domain-specific [MedCPT](https://github.com/ncbi/MedCPT) embeddings ([Article Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder), [Query Encoder](https://huggingface.co/ncbi/MedCPT-Query-Encoder)), Cortex Search multi-index queries, and a Cortex Agent - all running natively on Snowflake.
 
 The PubMed CKE provides ~72 million pre-chunked Open Access biomedical articles as a free Marketplace listing. This project layers custom medical embeddings on top to enable high-quality semantic search over the full corpus, exposed through a conversational agent.
 
@@ -93,9 +93,9 @@ PUBMED_BIOMEDICAL_RESEARCH_CORPUS.OA_COMM.PUBMED_OA_VW  (~72M chunks)
 
 | Service | Model | Purpose | Compute Pool | Lifecycle |
 |---|---|---|---|---|
-| `MEDCPT_EMBEDDER_SVC` | ncbi/MedCPT-Article-Encoder | Bulk historical embedding (one-time) | GPU_ML_M_POOL (GPU_NV_M) | Manual |
-| `medcpt_embedder_incremental_svc` | ncbi/MedCPT-Article-Encoder | Daily incremental embedding | PUBMED_GPU_S_POOL (GPU_NV_S) | Auto (proc manages resume/suspend) |
-| `medcpt_query_encoder_svc` | ncbi/MedCPT-Query-Encoder | Real-time query encoding at search time | PUBMED_GPU_S_POOL (GPU_NV_S) | Auto (tasks: 5AM resume, 11PM suspend) |
+| `MEDCPT_EMBEDDER_SVC` | [ncbi/MedCPT-Article-Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder) | Bulk historical embedding (one-time) | GPU_ML_M_POOL (GPU_NV_M) | Manual |
+| `medcpt_embedder_incremental_svc` | [ncbi/MedCPT-Article-Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder) | Daily incremental embedding | PUBMED_GPU_S_POOL (GPU_NV_S) | Auto (proc manages resume/suspend) |
+| `medcpt_query_encoder_svc` | [ncbi/MedCPT-Query-Encoder](https://huggingface.co/ncbi/MedCPT-Query-Encoder) | Real-time query encoding at search time | PUBMED_GPU_S_POOL (GPU_NV_S) | Auto (tasks: 5AM resume, 11PM suspend) |
 
 ## Scripts
 
