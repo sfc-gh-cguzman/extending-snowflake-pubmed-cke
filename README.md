@@ -48,6 +48,10 @@ This asymmetry means a query like "aortic stenosis treatment outcomes" gets mapp
 
 For non-medical use cases, `snowflake-arctic-embed` is the better choice - it's simpler (one model, no SPCS needed), cheaper, and performs well on general text. MedCPT is for when retrieval quality on biomedical content is the priority.
 
+## Demo
+
+![MedCPT PubMed Agent Demo](assets/medcpt_pubmed_agent.gif)
+
 ## Architecture
 
 ![Architecture Diagram](assets/architecture.svg)
