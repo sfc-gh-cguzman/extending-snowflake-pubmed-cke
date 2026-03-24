@@ -2,13 +2,13 @@
 
 ## What this is
 
-A reference implementation that extends Snowflake's **PubMed Biomedical Research Corpus** Curated Knowledge Extension (CKE) with domain-specific [MedCPT](https://github.com/ncbi/MedCPT) embeddings ([Article Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder), [Query Encoder](https://huggingface.co/ncbi/MedCPT-Query-Encoder)), Cortex Search multi-index queries, and a Cortex Agent - all running natively on Snowflake.
+A reference implementation that extends Snowflake's **PubMed Biomedical Research Corpus** [Cortex Knowledge Extension](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-knowledge-extensions/cke-overview) (CKE) with domain-specific [MedCPT](https://github.com/ncbi/MedCPT) embeddings ([Article Encoder](https://huggingface.co/ncbi/MedCPT-Article-Encoder), [Query Encoder](https://huggingface.co/ncbi/MedCPT-Query-Encoder)), Cortex Search multi-index queries, and a Cortex Agent - all running natively on Snowflake.
 
 The PubMed CKE provides ~72 million pre-chunked Open Access biomedical articles as a free Marketplace listing. This project layers custom medical embeddings on top to enable high-quality semantic search over the full corpus, exposed through a conversational agent.
 
 ## Why extend a CKE?
 
-Snowflake's Curated Knowledge Extensions do the heavy lifting:
+Snowflake's [Cortex Knowledge Extensions](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-knowledge-extensions/cke-overview) do the heavy lifting:
 
 - **Daily ingestion** of new PubMed articles from NLM's Open Access subset
 - **Deduplication** across article versions and retractions
@@ -192,6 +192,7 @@ The Query Encoder runs during business hours (5AM - 11PM CT) to serve real-time 
 - [MedCPT Paper (NCBI)](https://arxiv.org/abs/2307.00589)
 - [MedCPT-Article-Encoder (HuggingFace)](https://huggingface.co/ncbi/MedCPT-Article-Encoder)
 - [MedCPT-Query-Encoder (HuggingFace)](https://huggingface.co/ncbi/MedCPT-Query-Encoder)
+- [Cortex Knowledge Extensions Documentation](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-knowledge-extensions/cke-overview)
 - [Cortex Search Documentation](https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview)
 - [Snowflake ML Registry Documentation](https://docs.snowflake.com/en/developer-guide/snowflake-ml/model-registry/overview)
 - [Snowflake Service Consumption Table](https://www.snowflake.com/legal-files/CreditConsumptionTable.pdf)
